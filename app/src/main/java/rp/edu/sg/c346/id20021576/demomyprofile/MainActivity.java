@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
-        String msg = prefs.getString("username", "John");
-        float gpaMsg = prefs.getFloat("score", 0);
-        etName.setText(msg);
-        etGPA.setText(String.valueOf(gpaMsg));
+        String uName = prefs.getString("username", "John");
+        float gpa = prefs.getFloat("gpa", 0.0f);
+        etName.setText(uName);
+        etGPA.setText(gpa + "");
 
     }
 
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor prefEdit = prefs.edit();
         prefEdit.putString("username", strName);
-        prefEdit.putFloat("score", gpa);
+        prefEdit.putFloat("gpa", gpa);
         prefEdit.commit();
 
     }
